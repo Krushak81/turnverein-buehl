@@ -1,3 +1,9 @@
+const { linkResolver } = require("./config/prismic/link-resolver");
+
+require("dotenv").config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Boostrap 5 Sass Starter`,
@@ -5,7 +11,12 @@ module.exports = {
     author: `@r-ichard`,
   },
   plugins: [
-    `gatsby-plugin-image`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    `gatsby-plugin-gatsby-cloud`,
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,14 +24,23 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-sass`,
       options: {
         sassOptions: {
           precision: 6,
         },
+      },
+    },
+
+    {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
+        linkResolver: (doc) => linkResolver(doc),
       },
     },
     {
@@ -35,6 +55,5 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
   ],
-}
+};

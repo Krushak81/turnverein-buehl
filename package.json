@@ -6,15 +6,19 @@
   "author": "Richard Raduly <richard@raduly.fr>",
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "@prismicio/react": "^2.6.2",
     "bootstrap": "^5.2.2",
     "gatsby": "^5.1.0",
     "gatsby-plugin-gatsby-cloud": "^5.1.0",
-    "gatsby-plugin-image": "^3.1.0",
+    "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.1.0",
     "gatsby-plugin-offline": "^6.1.0",
+    "gatsby-plugin-sitemap": "^6.10.0",
     "gatsby-plugin-sass": "^6.1.0",
     "gatsby-plugin-sharp": "^5.1.0",
     "gatsby-source-filesystem": "^5.1.0",
+    "gatsby-source-prismic": "^5.3.1",
+    "gatsby-plugin-prismic-previews": "^5.3.1",
     "gatsby-transformer-sharp": "^5.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -22,7 +26,7 @@
     "sass": "1.49.11"
   },
   "devDependencies": {
-    "prettier": "2.5.1"
+    "prettier": "^2.8.8"
   },
   "keywords": [
     "gatsby",
